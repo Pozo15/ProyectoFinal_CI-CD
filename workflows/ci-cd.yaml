@@ -34,9 +34,11 @@ jobs:
     - name: 🐳 Construir y subir imagen Docker
       uses: docker/build-push-action@v5
       with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/devops-holamundo:latest
+       context: .
+       push: true
+       platforms: linux/amd64
+       tags: ${{ secrets.DOCKER_USERNAME }}/devops-holamundo:latest
+
 
     - name: 🚀 Desplegar en Render
       run: |
